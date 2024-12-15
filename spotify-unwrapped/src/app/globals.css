@@ -19,3 +19,19 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+h1{
+  font-size:50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.home-box{
+  border-radius: 50%;
+}
+@keyframes black-to-white{
+  from {background-color: black;}
+  to {background-color: white;}
+}
+.home-box-open{
+  animation-name:black-to-white;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
