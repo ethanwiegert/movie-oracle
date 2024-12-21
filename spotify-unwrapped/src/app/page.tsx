@@ -41,10 +41,10 @@ export default function Animation() {
             </div>
         </div>
       </main>
-      <footer className="row-start-3 items-center justify-center absolute bottom-0 m-4">
+      <footer className="flex bg-gray-700 bg-gradient-to-b from-white row-start-3 items-center justify-center absolute bottom-0 m-4 p-8 w-screen">
         
-    
-          <p>Spotify Unwrapped - Ethan Wiegert</p>
+    <div><p>Spotify Unwrapped - Ethan Wiegert</p></div>
+          
       </footer>
     </div>
   );
