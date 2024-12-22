@@ -13,6 +13,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -54,7 +59,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar() {
   return (
-    <div className="flex justify-around p-8 bg-gray-700 bg-gradient-to-t from-white">
+    <div className="flex justify-between p-8 bg-gray-700 bg-gradient-to-t from-white">
     <NavigationMenu>
       <NavigationMenuList>
       <NavigationMenuItem>
@@ -113,6 +118,12 @@ export function Navbar() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+    <div className="float-right">
+            <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+    </div>
     </div>
   )
 }

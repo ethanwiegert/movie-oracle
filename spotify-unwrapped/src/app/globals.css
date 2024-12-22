@@ -12,15 +12,23 @@ h1{
 .home-box{
   border-radius: 50%;
 }
-@keyframes black-to-white{
-  from {background-color: black;}
-  to {background-color: white;}
+@keyframes portal-rainbow{
+  12.5% {border-color: red; transform: rotate(45deg);}
+  25% {border-color: orange;transform: rotate(90deg);}
+  37.5% {border-color: yellow;transform: rotate(135deg);}
+  50% {border-color: green;transform: rotate(180deg);}
+  62.5% {border-color: blue;transform: rotate(225deg);}
+  75% {border-color: indigo;transform: rotate(270deg);}
+  87.5% {border-color: violet;transform: rotate(315deg);}
+  100% {border-color: white;transform: rotate(360deg);}
 }
-.home-box-open{
-  animation-name:black-to-white;
-  animation-duration: 3s;
-  animation-timing-function: ease-out;
+
+.home-portal{
+  animation-name: portal-rainbow;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
 }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
