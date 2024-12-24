@@ -1,21 +1,8 @@
 'use client'
-import { useEffect, useState } from "react";
 
 
 export default function Animation() {
-  const [displayNote, setDisplayNote] = useState(false)
 
-
-    useEffect(()=>{
-        setTimeout(() => {
-            DisplayNote()
-        }, 2500);
-    })
-
-  
-  function DisplayNote(){
-    setDisplayNote(true)
-  }
   
   return (
     
@@ -25,11 +12,13 @@ export default function Animation() {
        
       <h1>Spotify Unwrapped</h1>
       
+      <h2>The Future is Now </h2>
+        <div className="flex gap-4 items-center flex-column">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-        <h2><i>The Future is Now</i></h2>
+        <p><i>Discover what could be</i></p>
        
         </div>
+
         <div className="flex flex-row pt-16">
                 <div className="text-center border-r-4 border-l-4 home-portal h-32 w-32 home-box">
                 </div>
