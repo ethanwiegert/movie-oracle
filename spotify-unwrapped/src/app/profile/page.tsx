@@ -1,32 +1,35 @@
 'use client'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SpotifyApi } from '@spotify/web-api-ts-sdk';
 
 export default function Profile(){
+  const [currentUser, setCurrentUser] = useState();
+  
 
-    // Authorization token that must have been created previously. See : https://developer.spotify.com/documentation/web-api/concepts/authorization
-
-
-    async function GetAuthorization(){
-      const ClientID =  process.env.Spotify_Client
-      if(ClientID!=null){
-        const sdk = SpotifyApi.withUserAuthorization(ClientID.toString(), "https://localhost:3000", ["user-read-recently-played"]);
-        return sdk
-      }
-      
-    }
-
-    async function GetUser(){
-      const sdk = await GetAuthorization();
-      if(sdk != null){
+      async function SpotifyTest(){
+        //console.log("test- "+process.env.NEXT_PUBLIC_TestVariable)
+        const sdk = SpotifyApi.withUserAuthorization(`${process.env.NEXT_PUBLIC_Spotify_Client}`, "http://localhost:3000/profile", [""]);
+        console.log("Searching Spotify for The Beatles...");
         const user = await sdk.currentUser.profile()
-        return user
+        const name = user.display_name
+        console.log("user - "+user.display_name)
+        const api = SpotifyApi.withClientCredentials(
+            `${process.env.NEXT_PUBLIC_Spotify_Client}`,
+            `${process.env.NEXT_PUBLIC_Client_Secret}`
+        );
+    
+        const items = await api.search("The Beatles", ["artist"]);
+    
+        console.table(items.artists.items.map((item) => ({
+            name: item.name,
+            followers: item.followers.total,
+            popularity: item.popularity,
+        })));
+        setCurrentUser(name)
       }
-    }
 
-    useEffect(()=>{
-      const user = GetUser();
-      console.log(user)
+     useEffect(()=>{
+      SpotifyTest();
     })
     
 
@@ -34,7 +37,7 @@ export default function Profile(){
     return (
     <>
 <h1>Test Artist Data</h1>
-map()
+<p>name: {currentUser}</p>
     </>
 )
 }
