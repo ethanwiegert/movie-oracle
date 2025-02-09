@@ -1,11 +1,12 @@
 'use client'
-
+import { Navbar } from "@/components/Navbar";
 
 export default function Animation() {
 
   
   return (
-    
+    <>
+    <Navbar userAvatar={""} userLoggedIn={""}/>
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center pt-40 font-[family-name:var(--font-geist-sans)]">
                 
       <main className="flex flex-col gap-8 row-start-1 items-center">
@@ -31,6 +32,7 @@ export default function Animation() {
           
       </footer>
     </div>
+    </>
   );
   }
 

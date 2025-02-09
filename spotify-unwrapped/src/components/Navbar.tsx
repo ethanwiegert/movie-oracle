@@ -57,7 +57,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ]
 
-export function Navbar() {
+export function Navbar({ userAvatar, userLoggedIn }: { userAvatar: string, userLoggedIn: string }) {
   return (
     <div className="flex justify-between p-8 bg-gray-700 bg-gradient-to-t from-white">
     <NavigationMenu>
@@ -119,10 +119,16 @@ export function Navbar() {
       </NavigationMenuList>
     </NavigationMenu>
     <div className="float-right">
+      {
+        (userAvatar.length>0 && userLoggedIn.length>0) ?
             <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarImage src={userAvatar} alt={userLoggedIn} />
+                <AvatarFallback>{userLoggedIn.charAt(0)}</AvatarFallback>
             </Avatar>
+            :
+            <></>
+      }
+            
     </div>
     </div>
   )
