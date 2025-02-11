@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
+import GenreChart from "@/components/ui/piechart"
 import { SpotifyApi } from '@spotify/web-api-ts-sdk';
 
 export default function Profile(){
@@ -44,6 +45,7 @@ export default function Profile(){
 <Navbar userAvatar={`${currentAvatar}`} userLoggedIn={`${currentUser}`}/>
 <h1>Test Artist Data</h1>
 <p>Welcome {currentUser}!</p>
+<GenreChart/>
     </>
 )
 }
