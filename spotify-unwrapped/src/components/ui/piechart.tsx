@@ -18,6 +18,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+
+//make chartData dynamic
 const chartData = [
   { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
   { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
@@ -26,6 +28,7 @@ const chartData = [
   { browser: "other", visitors: 190, fill: "var(--color-other)" },
 ]
 
+//make chart config dynamic most important - labels
 const chartConfig = {
   visitors: {
     label: "Visitors",
