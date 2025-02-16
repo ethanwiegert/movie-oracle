@@ -88,7 +88,7 @@ export function Navbar({ userAvatar, userLoggedIn }: { userAvatar: string, userL
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/spotify-demo" title="Introduction">
+              <ListItem href="/spotify-sdk" title="Introduction">
                 Demo.
               </ListItem>
               <ListItem href="/docs/installation" title="Installation">

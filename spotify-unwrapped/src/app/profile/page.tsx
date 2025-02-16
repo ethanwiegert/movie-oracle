@@ -12,8 +12,6 @@ export default function Profile(){
         const sdk = SpotifyApi.withUserAuthorization(`${process.env.NEXT_PUBLIC_Spotify_Client}`, "http://localhost:3000/profile", ["user-read-private user-read-email user-top-read"]);
         const user = await sdk.currentUser.profile()
 
-        const TopArtists = await sdk.currentUser.topItems("artists", "short_term", 50, 0);
-        console.log(TopArtists);
         //to add: loop artists and get genres, hash map, add top five to pie chart with counts
 
         const name = user.display_name
