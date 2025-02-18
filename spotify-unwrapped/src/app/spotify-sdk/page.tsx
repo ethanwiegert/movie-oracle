@@ -1,15 +1,15 @@
 'use client'
 
 import { useSpotify } from '@/api/useSpotify';
-import { SearchResults, SpotifyApi } from '@spotify/web-api-ts-sdk';
+import { SearchResults, SpotifyApi, AuthorizationCodeWithPKCEStrategy } from '@spotify/web-api-ts-sdk';
 import { useEffect, useState } from 'react'
 
 function App() {
   
   const sdk = useSpotify(
     `${process.env.NEXT_PUBLIC_Spotify_Client}`, 
-    "http://localhost:3000/profile", 
-    ["user-read-private", "user-read-email", "user-top-read", "user-follow-read"]
+    "http://localhost:3000", 
+    ["user-read-private", "user-read-email", "user-top-read", "user-follow-read", "user-library-read"]
   );
 
   return sdk
@@ -25,14 +25,25 @@ function SpotifySearch({ sdk }: { sdk: SpotifyApi}) {
       const results = await sdk.search("The Beatles", ["artist"]);
       setResults(() => results);
 
+
+      const sdk2 = SpotifyApi.withUserAuthorization(`${process.env.NEXT_PUBLIC_Spotify_Client}`, 
+    "http://localhost:3000", 
+    ["user-read-private", "user-read-email", "user-top-read"]);
+    const specialSdk = SpotifyApi.performUserAuthorization(`${process.env.NEXT_PUBLIC_Spotify_Client}`, 
+    "http://localhost:3000", 
+    ["user-read-private", "user-read-email", "user-top-read"], "http://localhost:3000")
+      const user2 = await sdk2.currentUser.profile()
+      
       const user = await sdk.currentUser.profile();
       console.log(user)
 
-      const followed = await sdk.currentUser.followedArtists()
-      console.log(followed)
+      const artistData = await sdk2.artists.topTracks("0TnOYISbd1XYRBk9myaseg", "US")
+      console.log(artistData)
+
     
-      const TopArtists =  await sdk.currentUser.topItems("artists", "short_term", 50, 0)
-      console.log(TopArtists)      
+      const token = (await specialSdk).accessToken
+      const anotherSdk = new SpotifyApi({token});
+      //console.log(TopArtists)      
     })();
   }, [sdk]);
 
