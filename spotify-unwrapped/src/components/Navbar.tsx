@@ -91,8 +91,8 @@ export function Navbar({ userAvatar, userLoggedIn }: { userAvatar: string, userL
               <ListItem href="/spotify-sdk" title="Introduction">
                 Demo.
               </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem href="/motion-test" title="Installation">
+                View Motion.
               </ListItem>
               <ListItem href="/docs/primitives/typography" title="Typography">
                 Styles for headings, paragraphs, lists...etc
