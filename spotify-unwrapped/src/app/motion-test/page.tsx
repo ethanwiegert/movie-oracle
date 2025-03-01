@@ -8,7 +8,6 @@ import {
     useTransform,
 } from "motion/react"
 import { useRef } from "react"
-import { Navbar } from "@/components/Navbar";
 
 
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -22,7 +21,6 @@ function Image({ id }: { id: number }) {
 
     return (
         <>
-        <Navbar userAvatar={""} userLoggedIn={""}/>
         <section className="img-container">
             <div ref={ref}>
                 <img
