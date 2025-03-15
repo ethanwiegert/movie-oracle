@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Music: Unwrapped",
-  description: "An 'Unwrapped' glance ar your spotify music.",
+  title: "Movie Oracle",
+  description: "Help you find the best movies for you, almost like magic.",
 };
 
 export default function RootLayout({
