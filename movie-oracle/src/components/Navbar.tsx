@@ -59,7 +59,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar({ userAvatar, userLoggedIn }: { userAvatar: string, userLoggedIn: string }) {
   return (
-    <div className="flex justify-between p-8 bg-gray-700 bg-gradient-to-t from-white">
+    <div className="flex justify-between mb-4 p-4 bg-gray-700 bg-gradient-to-t from-white">
     <NavigationMenu>
       <NavigationMenuList>
       <NavigationMenuItem>
