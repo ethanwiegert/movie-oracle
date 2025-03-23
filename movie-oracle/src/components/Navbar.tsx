@@ -59,7 +59,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar({ userAvatar, userLoggedIn }: { userAvatar: string, userLoggedIn: string }) {
   return (
-    <div className="flex justify-between mb-4 p-4 bg-gray-700 bg-gradient-to-t from-white">
+    <div className="flex justify-between p-8 bg-gray-700 bg-gradient-to-t from-white fixed top-0 w-screen">
     <NavigationMenu>
       <NavigationMenuList>
       <NavigationMenuItem>
@@ -77,13 +77,13 @@ export function Navbar({ userAvatar, userLoggedIn }: { userAvatar: string, userL
                 <NavigationMenuLink asChild>
                   <Link
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/profile"
+                    href="/about"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      Profile
+                      About
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Discover your spotify profile.
+                      Let fate decide your next favorite movie.
                     </p>
                   </Link>
                 </NavigationMenuLink>

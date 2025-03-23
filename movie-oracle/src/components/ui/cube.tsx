@@ -9,13 +9,13 @@ export default function UseAnimationFrame() {
     useAnimationFrame((t) => {
         if (!ref.current) return
 
-        const rotate = Math.sin(t / 10000) * 200
-        const y = (1 + Math.sin(t / 1000)) * -50
+        const rotate = Math.sin(t / 10000) * 100
+        const y = (1 + Math.sin(t / 1000)) * -10
         ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`
     })
 
     return (
-        <div className="flex justify-center items-center mt-32 pt-32container">
+        <div className="flex justify-center items-center">
             <div className="cube" ref={ref}>
                 <div className="side front" />
                 <div className="side left" />
@@ -43,8 +43,8 @@ function StyleSheet() {
         }
 
         .cube {
-            width: 200px;
-            height: 200px;
+            width: 100px;
+            height: 100px;
             position: relative;
             transform-style: preserve-3d;
         }
@@ -58,27 +58,27 @@ function StyleSheet() {
         }
 
         .front {
-            transform: rotateY(0deg) translateZ(100px);
+            transform: rotateY(0deg) translateZ(50px);
             background-color: var(red);
         }
         .right {
-            transform: rotateY(90deg) translateZ(100px);
+            transform: rotateY(90deg) translateZ(50px);
             background-color: var(red);
         }
         .back {
-            transform: rotateY(180deg) translateZ(100px);
+            transform: rotateY(180deg) translateZ(50px);
             background-color: var(red);
         }
         .left {
-            transform: rotateY(-90deg) translateZ(100px);
+            transform: rotateY(-90deg) translateZ(50px);
             background-color: var(red);
         }
         .top {
-            transform: rotateX(90deg) translateZ(100px);
+            transform: rotateX(90deg) translateZ(50px);
             background-color: var(--hue-3-transparent);
         }
         .bottom {
-            transform: rotateX(-90deg) translateZ(100px);
+            transform: rotateX(-90deg) translateZ(50px);
             background-color: var(--hue-6-transparent);
         }
 
